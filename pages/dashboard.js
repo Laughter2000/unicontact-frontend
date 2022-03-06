@@ -12,6 +12,7 @@ import {
   SimpleGrid,
   Spacer,
   Stat,
+  Stack,
   StatHelpText,
   StatLabel,
   StatNumber,
@@ -49,6 +50,9 @@ import { NextSeo } from "next-seo";
 import "@fontsource/inter"
 import "@fontsource/poppins"
 import {useAuth} from "@/contexts/UserProvider";
+import StudentDetails from "@/components/StudentDetails";
+import InstitutionDetails from "@/components/InstitutionDetails";
+
 
 
 
@@ -63,37 +67,6 @@ const Dashboard = () => {
     const textColor = useColorModeValue("gray.700", "white");
 
     useEffect(() => {
-    //   const getStatistics = async() => {
-    //     try {
-    //       let values = []
-    //       const response = await contest.statistics.request()
-    //       const allkeys = Object.keys(response.data)
-          
-    //       for (var i = 0; i < allkeys.length; i++) {
-    //         if (response.data['is_contestant'] == true ) {
-    //           if (allkeys[i] !== 'is_contestant') {
-    //           let newValues = {}
-    //           newValues["name"] = name[allkeys[i]]
-    //           newValues["amount"] = response.data[allkeys[i]]
-    //           newValues["icon"] = stats[allkeys[i]]
-    //           values.push(newValues);}
-    //         }
-    //          else {
-    //            if ((allkeys[i] !== "total_votes_gotten" ) && (allkeys[i] !== 'is_contestant')){
-    //           let newValues = {}
-    //           newValues["name"] = name[allkeys[i]]
-    //           newValues["amount"] = response.data[allkeys[i]]
-    //           newValues["icon"] = stats[allkeys[i]]
-    //           values.push(newValues);}
-    //         }
-    //       }
-      
-    //       setUserStats(values);
-    //     }
-    //     catch(err) {
-    //       console.log(err);
-    //     }
-    //   }
 
 
     //   const getVotes = async () => {
@@ -122,57 +95,56 @@ const Dashboard = () => {
       />
         <SidebarWithHeader page="Dashboard">
         <Flex flexDirection="column" pt={{ base: "10px", md: "10px" }}>
-          <Heading fontWeight={"400"} fontFamily="poppins" my={4} fontSize={{base: "2xl", md: "4xl"}}>{`Welcome ${user?.first_name}`}</Heading>
+          <Heading fontWeight={"400"} fontFamily="poppins" my={4} fontSize={{base: "2xl", md: "4xl"}}>{`Welcome ${user && user.first_name}`}</Heading>
       
         </Flex>
 
         
-        <Flex direction="column" pt={{ base: "50px", md: "50px" }}>
-        
-      {/* <Card overflowX={{ sm: "scroll", xl: "hidden" }}>
-        <CardHeader p="6px 0px 22px 0px">
-          <Text fontSize="xl" color={textColor} fontWeight="bold">
-            Your Votes Table
-          </Text>
-        </CardHeader>
-        <CardBody>
-          <Table variant="simple" color={textColor}>
-            <Thead>
-              <Tr my=".8rem" pl="0px" color="gray.400">
-                <Th pl="0px" color="gray.400">
-                  Contestant
-                </Th>
-                <Th color="gray.400">Contest</Th>
-                <Th color="gray.400">Votes</Th>
-                <Th color="gray.400">Date Voted</Th>
-                <Th></Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              { userVotes ? (userVotes.length >= 1 ? userVotes.map((votes) => {
-                return (
-                  <TablesTableRow
-                    key={votes.id}
-                    contestant={votes.contestant}
-                    contest={votes.contest}
-                    number_of_votes={votes.number_of_votes}
-                    date_voted={votes.date_voted}
-                  />
-                );
-              }) :
-              <Flex w="100%" justifyContent="center" mx="auto">
-              <Text textAlign="center" fontWeight="bold" mx="auto" w="100%" fontFamily="inter" m={8}>You have not voted any contestant yet.</Text>
-             </Flex>
-              ): 
-              <>
-              <TableSkeletonRow />
-              <TableSkeletonRow />
-              <TableSkeletonRow />
-              </>}
-            </Tbody>
-          </Table>
-        </CardBody>
-      </Card> */}
+        <Flex direction="column" pt={{ base: "50px", md: "50px" }} justifyContent="center">
+          {
+            !user?.role ? 
+            (<Stack direction="column" textAlign="center" justifyContent="center">
+              <Heading as={"h6"} fontSize="20px">Hi, Click the link below to setup your institution profile</Heading>
+                   
+    <Flex>
+     <Button
+      mt="40px"
+       color="white"
+       fontSize="16px"
+       cursor="pointer"
+       p={8}
+       maxWidth="250px"
+       bgColor="primary"
+       mx='auto'
+       as={"a"}
+       href="/institution/create"
+       textAlign="center"
+       _hover={{
+         bgColor: "none"
+       }}
+       _active={{
+         borderColor: "none",
+         bgColor: "none"
+       }}
+       _focus={{
+         borderColor: "none",
+         bgColor: "none"
+       }}
+     >
+       Create Institution Data
+     </Button>
+     </Flex>
+            </Stack>)
+            :
+            user?.role === "normal" ?
+            (
+                <InstitutionDetails />
+            )
+            :
+            <StudentDetails />
+
+
+    }
       </Flex>
 
         </SidebarWithHeader>

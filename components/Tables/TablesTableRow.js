@@ -11,10 +11,11 @@ import {
   } from "@chakra-ui/react";
   import React from "react";
   import { format } from "date-fns";
+  import ContactDetails from "@/components/ContactDetails";
 
   function TablesTableRow(props) {
  
-    const { contestant, contest, number_of_votes, date_voted } = props;
+    const { first_name, last_name, mat_no, phone_number, alldata } = props;
     const textColor = useColorModeValue("gray.700", "white");
     const bgStatus = useColorModeValue("gray.400", "#1a202c");
     const colorStatus = useColorModeValue("white", "gray.400");
@@ -29,24 +30,29 @@ import {
                 fontWeight="bold"
                 minWidth="100%"
               >
-                {contestant}
+                {first_name}
               </Text>
           </Flex>
         </Td>
   
         <Td>
             <Text fontSize="sm" color={textColor} fontWeight="bold">
-              {contest}
+              {last_name}
             </Text>
         </Td>
         <Td>
         <Text fontSize="sm" color={textColor} fontWeight="bold">
-              {number_of_votes}
+              {mat_no}
         </Text>
         </Td>
         <Td>
           <Text fontSize="sm" color={textColor} fontWeight="bold" pb=".5rem">
-            {format(new Date(date_voted), "PPp")}
+            {phone_number}
+          </Text>
+        </Td>
+        <Td>
+          <Text fontSize="sm" color={textColor} fontWeight="bold" pb=".5rem">
+            <ContactDetails contacts={alldata}/>
           </Text>
         </Td>
       </Tr>

@@ -4,7 +4,10 @@ const institution = {
 
   faculties: new RouteObject("get", "institution/faculties/"),
 
-  enquiry: new RouteObject("get", "enquiry/"),
+
+  department: (id) => {
+    return new RouteObject("get", `institution/faculties/${id}/`);
+  },
 
 
 }
