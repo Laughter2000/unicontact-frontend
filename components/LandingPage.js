@@ -5,8 +5,7 @@ import { HiChevronRight } from 'react-icons/hi'
 
 export default function Home() {
   return (
-    <Box bg="gray.800" as="section" minH="100vw" position="relative">
-      <Text position="relative">Unicontact</Text>
+    <Box bg="gray.800" as="section" minH="140px" position="relative">
       <Box py="32" position="relative" zIndex={1}>
         <Box maxW={{ base: 'xl', md: '7xl' }} mx="auto" px={{ base: '6', md: '8' }} color="white">
           <Box maxW="xl">
@@ -20,7 +19,7 @@ export default function Home() {
             <Stack direction={{ base: 'column', md: 'row' }} mt="10" spacing="4">
               <Button
                 as="a"
-                href="/signin"
+                href="#"
                 colorScheme="purple"
                 px="8"
                 rounded="full"
@@ -28,20 +27,7 @@ export default function Home() {
                 fontSize="md"
                 fontWeight="bold"
               >
-                Sign In
-              </Button>
-              <Button
-                as="a"
-                href="/signup"
-                bgColor="white"
-                color="purple.500"
-                px="8"
-                rounded="full"
-                size="lg"
-                fontSize="md"
-                fontWeight="bold"
-              >
-                sign Up
+                Get Started Now
               </Button>
             </Stack>
           </Box>
@@ -59,7 +45,7 @@ export default function Home() {
       >
         <Box position="relative" w="full" h="full">
           <Img
-            src="./images/africa.webp"
+            src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2250&q=80"
             alt="Main Image"
             w="full"
             h="full"

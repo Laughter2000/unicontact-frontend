@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@/components/*": [
+          "components/*"
+        ],
+        "@/theme/*": [
+          "theme/*"
+        ],
+        "@/contexts/*": [
+          "contexts/*"
+        ],
+        "@/services/*": [
+          "services/*"
+        ],
+        "@/reducers/*": [
+          "reducers/*"
+        ],          
+      }
+    }
+  }
