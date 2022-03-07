@@ -2,8 +2,8 @@ import Axios from "axios";
 import Cookies from "js-cookie";
 
 let urls = {
-  development: "http://127.0.0.1:8000/api/v1/",
-  production: "http://127.0.0.1:8000/api/v1/"
+  development: "https://unicontacts.herokuapp.com/api/v1/",
+  production: "https://unicontacts.herokuapp.com/api/v1/"
 }
 
 var baseURL = urls[process.env.NODE_ENV]
