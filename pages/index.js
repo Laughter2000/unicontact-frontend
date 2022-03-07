@@ -15,7 +15,7 @@ export default function Home() {
             </Heading>
             <Text fontSize={{ md: '2xl' }} mt="4" maxW="lg">
               Unicontact is a holistic database for university students in order to easily access
-              there relative's contacts during emergency.
+              there relative&apos;s contacts during emergency.
             </Text>
             <Stack direction={{ base: 'column', md: 'row' }} mt="10" spacing="4">
               <Button
