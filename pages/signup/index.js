@@ -73,16 +73,15 @@ const account_type = [
         var last_name = (values["last_name"]).toLowerCase()
         if (values["account_type"] === "Student") {
 
-          values["email"] = `${first_name}.${last_name}.${code}.uniben.edu`
+          values["email"] = `${first_name}.${last_name}@${code}.uniben.edu`
         }
         else {
-          values["email"] = `${first_name}.${last_name}.uniben.edu`
+          values["email"] = `${first_name}.${last_name}@uniben.edu`
         }
         values["faculty"] = parseInt(values["faculty"])
         try {
-          // const response = await user.signup.request(values);
-          // setCreation(true)
-          console.log(values)
+          const response = await user.signup.request(values);
+          setCreation(true)
           setIsSubmitting(false)
         } catch (error) {
             setIsSubmitting(false);

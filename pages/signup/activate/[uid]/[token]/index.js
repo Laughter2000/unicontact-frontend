@@ -17,15 +17,15 @@ import {
 
 import React, {useState, useEffect} from "react";
 
-import Footer from '@/components/Footer'
+// import Footer from '@/components/Footer'
 import {NavBar} from '@/components//NavBar'
 import { NextSeo } from "next-seo";
 import {useRouter} from "next/router";
 import user from '@/services/routes/user';
 
   export default function ActivateAccount() {
-      const title = "Cleanomart - Sign In";
-      const url = "https://cleanomart.com.ng/forgot-password";
+      const title = "Unicontact - Sign In";
+      const url = "https://unicontact.com.ng/forgot-password";
       const [resetLoading, setResetLoading] = useState(true)
       const router = useRouter();
 

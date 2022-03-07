@@ -17,15 +17,15 @@ import {
 
 import React, {useState, useEffect} from "react";
 
-import Footer from '@/components/Footer'
+// import Footer from '@/components/Footer'
 import {NavBar} from '@/components/NavBar'
 import { NextSeo } from "next-seo";
 import {useRouter} from "next/router";
 import user from '@/services/routes/user';
 
   export default function ForgotPassword() {
-      const title = "Cleanomart - Reset Password";
-      const url = "https://cleanomart.com.ng/forgot-password";
+      const title = "Unicontact - Reset Password";
+      const url = "https://unicontact.com.ng/forgot-password";
       const [backendError, setBackendError] = useState("")
       const [backendSuccess, setBackendSuccess] = useState("")
       const [newPassword, setNewPassword] = useState("")
@@ -137,7 +137,7 @@ import user from '@/services/routes/user';
       </Flex>
       
       </Box>
-      <Footer />
+      {/* <Footer /> */}
       </>
     );
   }
