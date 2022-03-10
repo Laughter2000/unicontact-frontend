@@ -319,7 +319,7 @@ const account_type = [
                 align={'start'}
                 justify={'flex-start'}>
                 <Text>Already have an account? </Text>
-                <Link color={mode('purple.500', 'purple.300')} href="/SignUp">Sign In</Link>
+                <Link color={mode('purple.500', 'purple.300')} href="/signin">Sign In</Link>
               </Stack>
               <Button 
                 colorScheme="purple"
